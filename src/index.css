@@ -76,7 +76,7 @@ body {
     color: transparent;
     z-index: 1003;
     transition: all 0.3s ease;
-    cursor: pointer;
+    cursor: progress;
 }
 
 .toggle-switch {

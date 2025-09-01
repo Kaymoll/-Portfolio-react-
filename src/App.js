@@ -2,6 +2,49 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 
+// Composant titre animé intégré
+const AnimatedTitle = () => {
+const [displayedText, setDisplayedText] = useState('');
+const [currentIndex, setCurrentIndex] = useState(0);
+const fullText = 'Portfolio';
+
+  useEffect(() => {
+    if (currentIndex < fullText.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(fullText.slice(0, currentIndex + 1));
+        setCurrentIndex(currentIndex + 1);
+      }, 200); // Vitesse d'écriture
+
+      return () => clearTimeout(timeout);
+    }
+
+  }, [currentIndex, fullText]);
+
+  return (
+    <motion.h2
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      style={{
+        background: 'transparent',
+        backgroundClip: 'text',
+        WebkitBackgroundClip: 'text',
+        color: 'var(--text-color)',
+        fontFamily: 'Segoe UI, system-ui',
+        fontSize: '2.5rem',
+        fontWeight: 'bold',
+        marginBottom: '1rem',
+        minHeight: '3rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      {displayedText}
+    </motion.h2>
+  );
+};
+
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
@@ -98,9 +141,8 @@ function App() {
         viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
       >
-        <motion.h2 variants={fadeInUp}>
-          Portfolio
-        </motion.h2>
+
+        <AnimatedTitle />
         
         {/* Catégories avec animation en cascade */}
         <motion.div 
