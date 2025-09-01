@@ -107,6 +107,8 @@ body {
 
 .slider {
     position: absolute;
+    top: 0px;
+    left: 0px;
     width: 100%;
     height: 100%;
     border-radius: 22px;
@@ -117,10 +119,10 @@ body {
 .slider:before {
     content: "";
     position: absolute;
-    top: 3px;
     left: 4px;
-    width: 20px;
-    height: 20px;
+    top: 2px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     -webkit-box-shadow: inset 9px -4px 0px 0px var(--light);
     box-shadow: inset 9px -4px 0px 0px var(--light);
@@ -302,14 +304,6 @@ input:checked+.slider:before {
         gap: 1rem;
     }
 
-    .toggle-switch {
-        max-width: 52px;
-    }
-
-    .slider:before {
-        left: 1px;
-    }
-
     .footer {
         flex-direction: column;
         text-align: center;
@@ -340,25 +334,6 @@ input:checked+.slider:before {
 }
 
 @media (max-width: 400px) {
-    .toggle-switch {
-        max-width: 48px;
-    }
-
-    input:checked+.slider:before {
-        -webkit-transform: translateX(18px);
-        -ms-transform: translateX(18px);
-        transform: translateX(18px);
-    }
-
-    .slider:before {
-        left: 1px;
-    }
-    
-    .logo {
-        font-size: 1rem;
-        margin-left: -1rem;
-    }
-
     .portfolio-card {
         padding: 2rem;
     }

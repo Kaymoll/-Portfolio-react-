@@ -76,7 +76,6 @@ function App() {
         
         <motion.div 
           className="toggle-switch"
-          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
           <label className="theme-switch">
