@@ -50,6 +50,7 @@ const ProjectCard = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const projectData = {
+    image: "projet.jpg",
     title: "De la Gestion de Projet...",
     description: "Il s'agissait ici de s'entraîner à planifier le développement d'une application ainsi que tous ses paramètres. L'exercice avait pour but d'appréhender tous les aspects de la gestion de projet, des sprints aux compétences nécessaires, jusqu'aux ressources humaines et les outils pouvant être utilisés pour répondre aux différentes problématiques",
     skills: [
@@ -364,7 +365,6 @@ function App() {
         <p>© 2025 Camille Lucidarme. Tous droits réservés.</p>
         <motion.div 
           className="footer-links"
-          initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}

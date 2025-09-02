@@ -8,4 +8,4 @@
 
 // Motion Section JS l.279
 
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="" href="%PUBLIC_URL%/projet4.jpg" />
