@@ -188,6 +188,7 @@ input:checked+.slider:before {
 .project-showcase-card {
     max-width: 900px;
     margin: 2rem auto;
+    margin-bottom: 10rem;
 }
 
 .project-card-inner {
@@ -349,26 +350,6 @@ input:checked+.slider:before {
     margin-bottom: 20px;
 }
 
-.logo-card-small {
-    color: black;
-    text-align: center;
-}
-
-.menu-text-small, .maker-text-small, .by-text-small, .qwenta-text-small {
-    font-weight: bold;
-    font-size: 11px;
-    line-height: 1.1;
-    margin: 1px 0;
-}
-
-.gradient-image-expanded {
-    width: 200px;
-    height: 120px;
-    background-size: 200% 200%;
-    border-radius: 8px;
-    margin-left: 10px;
-}
-
 .skills-container {
     display: flex;
     flex-wrap: wrap;
@@ -448,9 +429,9 @@ input:checked+.slider:before {
 
 /* Portfolio section */
 .portfolio {
-    padding: 4rem 2rem;
+    padding-bottom: 4rem;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: -20px auto;
     text-align: center;
     flex: 1;
 }

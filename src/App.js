@@ -6,7 +6,7 @@ import './index.css';
 const AnimatedTitle = () => {
 const [displayedText, setDisplayedText] = useState('');
 const [currentIndex, setCurrentIndex] = useState(0);
-const fullText = 'Mon Portfolio';
+const fullText = 'Portfolio';
 
   useEffect(() => {
     if (currentIndex < fullText.length) {
@@ -309,7 +309,12 @@ function App() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <ProjectCard />
+          <div className="flex flex-row flex-nowrap gap-6 overflow-x-auto overflow-y-hidden">
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+          </div>
         </motion.div>
 
         {/* Cartes animées */}
