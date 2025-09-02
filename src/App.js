@@ -45,7 +45,7 @@ const fullText = 'Mon Portfolio';
   );
 };
 
-// Composant Carte de Projet
+// Composant Cartes de Projet
 const ProjectCard = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -86,20 +86,6 @@ const ProjectCard = () => {
             <div className="image-wrapper">
               <div className="logo-section">
                 <div className="logo-card">
-                  <div className="logo-text">
-                    <div className="menu-text">MENU</div>
-                    <div className="maker-text">MAKER</div>
-                    <div className="by-text">BY</div>
-                    <div className="qwenta-text">QWENTA</div>
-                  </div>
-                  <div className="solution-text">
-                    <div>SOLUTION</div>
-                    <div>TECHNIQUE</div>
-                  </div>
-                  <div className="webgencia-logo">
-                    <span>W</span>
-                    <span className="webgencia-text">Webgencia</span>
-                  </div>
                 </div>
               </div>
               <div className="gradient-image"></div>
@@ -130,24 +116,9 @@ const ProjectCard = () => {
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <div className="left-section">
-                <div className="node-fuand">NODE FUAND</div>
                 <div className="expanded-image-wrapper">
                   <div className="logo-section-small">
                     <div className="logo-card-small">
-                      <div className="logo-text-small">
-                        <div className="menu-text-small">MENU</div>
-                        <div className="maker-text-small">MAKER</div>
-                        <div className="by-text-small">BY</div>
-                        <div className="qwenta-text-small">QWENTA</div>
-                      </div>
-                      <div className="solution-text-small">
-                        <div>SOLUTION</div>
-                        <div>TECHNIQUE</div>
-                      </div>
-                      <div className="webgencia-logo-small">
-                        <span>W</span>
-                        <span className="webgencia-text-small">Webgencia</span>
-                      </div>
                     </div>
                   </div>
                   <div className="gradient-image-expanded"></div>
@@ -222,6 +193,7 @@ const ProjectCard = () => {
   );
 };
 
+// Composant Thème Dark/light
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
@@ -313,37 +285,9 @@ function App() {
         viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
       >
+
         {/* Titre animé */}
         <AnimatedTitle />
-        
-        {/* Catégories avec animation en cascade */}
-        <motion.div 
-          className="portfolio-categories"
-          variants={staggerContainer}
-        >
-          {[
-            {
-              title: "Développement d'application",
-              desc: "Développer de la programmation orientée objet, en utilisant des langages tels que Java/JEE. Pour le moment rien d'innovant mais j'acquiert des bases solides."
-            },
-            {
-              title: "Création de site Web", 
-              desc: "Créer des interfaces visuellement attrayantes en mettant l'accent sur l'esthétique et la cohérence de la marque ou du domaine professionnel."
-            },
-            {
-              title: "Plateforme d'automatisation",
-              desc: "Concevoir des systèmes automatisés et sécurisés avec fonctionnalités d'IA natives, alliant la flexibilité du code et la rapidité du no-code, afin d'améliorer l'expérience utilisateur et la productivité."
-            }
-          ].map((category, index) => (
-            <motion.div
-              key={index}
-              className="category-card"
-            >
-              <h4>{category.title}</h4>
-              <p>{category.desc}</p>
-            </motion.div>
-          ))}
-        </motion.div>
 
         {/* Mes projets */}
         <motion.div
@@ -352,25 +296,10 @@ function App() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <motion.h3 
-            style={{ 
-              fontSize: '2rem', 
-              color: 'var(--text-color)', 
-              marginTop: '4rem',
-              marginBottom: '2rem',
-              textAlign: 'center'
-            }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            Projet en vedette
-          </motion.h3>
           <ProjectCard />
         </motion.div>
 
-        {/* Carte principale avec animation */}
+        {/* Cartes animées */}
         <motion.div 
           className="portfolio-card"
           initial="hidden"
@@ -378,7 +307,7 @@ function App() {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUp}
           whileHover={{ 
-            scale: 1.02,
+            scale: 1,
             boxShadow: "0 20px 40px rgba(124, 142, 231, 0.2)",
             transition: { duration: 0.3 }
           }}
