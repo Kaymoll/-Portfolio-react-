@@ -33,7 +33,7 @@ const fullText = 'Mon Portfolio';
         fontFamily: 'Segoe UI, system-ui',
         fontSize: '2.5rem',
         fontWeight: 'bold',
-        marginBottom: '1rem',
+        margin: '2rem',
         minHeight: '3rem',
         display: 'flex',
         alignItems: 'center',
@@ -50,7 +50,7 @@ const ProjectCard = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const projectData = {
-    image: "projet.jpg",
+    image: "projet.png",
     title: "De la Gestion de Projet...",
     description: "Il s'agissait ici de s'entraîner à planifier le développement d'une application ainsi que tous ses paramètres. L'exercice avait pour but d'appréhender tous les aspects de la gestion de projet, des sprints aux compétences nécessaires, jusqu'aux ressources humaines et les outils pouvant être utilisés pour répondre aux différentes problématiques",
     skills: [
@@ -84,13 +84,19 @@ const ProjectCard = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="image-wrapper">
-              <div className="logo-section">
-                <div className="logo-card">
-                </div>
-              </div>
-              <div className="gradient-image"></div>
-            </div>
+            {/* Image du projet - partiellement visible */}
+            <motion.div 
+              className="project-image-container"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <img 
+                src={projectData.image} 
+                alt={projectData.title}
+                className="project-image-preview"
+              />
+            </motion.div>
             
             <h3 className="project-title-center">{projectData.title}</h3>
             <div className="project-divider"></div>
@@ -117,14 +123,20 @@ const ProjectCard = () => {
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <div className="left-section">
-                <div className="expanded-image-wrapper">
-                  <div className="logo-section-small">
-                    <div className="logo-card-small">
-                    </div>
-                  </div>
-                  <div className="gradient-image-expanded"></div>
-                </div>
-                
+                {/* Image du projet - complètement visible */}
+                <motion.div 
+                  className="project-image-expanded-container"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                >
+                  <img 
+                    src={projectData.image} 
+                    alt={projectData.title}
+                    className="project-image-expanded"
+                  />
+                </motion.div>
+
                 <div className="skills-container">
                   {projectData.skills.map((skill, index) => (
                     <motion.span 
