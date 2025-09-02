@@ -76,7 +76,7 @@ body {
     color: transparent;
     z-index: 1003;
     transition: all 0.3s ease;
-    cursor: progress;
+    cursor: none;
 }
 
 .toggle-switch {
@@ -190,21 +190,6 @@ input:checked+.slider:before {
     flex: 1;
 }
 
-.portfolio h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    background: var(--text-gradient);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-.portfolio p {
-    color: var(--text-third);
-    margin-bottom: 3rem;
-    transition: all 0.3s ease;
-}
-
 .portfolio-card {
     background: var(--bg-primary);
     border: 3px solid var(--border-color);
@@ -255,20 +240,7 @@ input:checked+.slider:before {
 }
 
 .category-card:hover {
-    border-color: var(--border-color);
-    background: rgba(124, 142, 231, 0.05);
-}
-
-.category-card h4 {
-    color: var(--text-color);
-    margin-bottom: 1rem;
-    transition: all 0.3s ease;
-    font-size: 1.3rem;
-}
-
-.category-card p {
-    color: var(--text-third);
-    line-height: 1.6;
+    border : 2px solid var(--border-color);
 }
 
 .footer {
@@ -293,57 +265,372 @@ input:checked+.slider:before {
     display: inline-block;
 }
 
+/* NOUVEAUX STYLES POUR LA CARTE DE PROJET */
+.project-showcase-card {
+    max-width: 900px;
+    margin: 2rem auto;
+}
+
+.project-card-inner {
+    background: var(--bg-secondary);
+    border-radius: 24px;
+    padding: 2.5rem;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(124, 142, 231, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.project-card-inner.expanded {
+    padding: 2rem;
+}
+
+/* État initial */
+.initial-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    height: 200px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.logo-section {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.logo-card {
+    color: black;
+    text-align: center;
+}
+
+.menu-text, .maker-text, .by-text, .qwenta-text {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.2;
+    margin: 2px 0;
+}
+
+.solution-text {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 8px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.webgencia-logo {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: white;
+    padding: 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.gradient-image {
+    width: 300px;
+    height: 200px;
+    background-size: 200% 200%;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.project-title-center {
+    font-size: 24px;
+    color: var(--text-primary);
+    margin: 0 0 20px 0;
+    font-weight: 500;
+}
+
+.project-divider {
+    width: 200px;
+    height: 2px;
+    background: var(--text-secondary);
+    margin: 0 auto 30px auto;
+}
+
+.project-details-button {
+    background: #4a4a4a;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.project-details-button:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+/* État étendu */
+.expanded-view {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.left-section {
+    flex: 1;
+    position: relative;
+}
+
+.node-fuand {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 10px;
+    color: var(--text-secondary);
+    font-weight: bold;
+}
+
+.expanded-image-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-section-small {
+    background: #4a7c59;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.logo-card-small {
+    color: black;
+    text-align: center;
+}
+
+.menu-text-small, .maker-text-small, .by-text-small, .qwenta-text-small {
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 1.1;
+    margin: 1px 0;
+}
+
+.solution-text-small {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 6px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.webgencia-logo-small {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: white;
+    padding: 4px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.webgencia-logo-small span:first-child {
+    color: #4a7c59;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.webgencia-text-small {
+    font-size: 6px;
+    color: #4a7c59;
+    font-weight: bold;
+}
+
+.gradient-image-expanded {
+    width: 200px;
+    height: 120px;
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #dda0dd);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+    border-radius: 8px;
+    margin-left: 10px;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.skill-badge {
+    background: #4a4a4a;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.skill-badge:hover {
+    background: #555;
+    transform: translateY(-2px);
+}
+
+.right-section {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.project-title-right {
+    font-size: 28px;
+    color: var(--text-primary);
+    margin: 0 0 15px 0;
+    font-weight: 500;
+}
+
+.project-divider-right {
+    height: 2px;
+    background: var(--text-secondary);
+    margin: 0 0 25px 0;
+    max-width: 300px;
+}
+
+.project-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-third);
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.project-link {
+    font-size: 18px;
+    color: var(--text-primary);
+    margin-bottom: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+}
+
+.project-link:hover {
+    color: var(--text-color);
+}
+
+.return-button {
+    background: #4a4a4a;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.return-button:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+/* Responsive pour la carte de projet */
 @media (max-width: 768px) {
-    .portfolio-categories {
-        grid-template-columns: 1fr;
-    }
-
-    .portfolio-buttons {
+    .expanded-view {
         flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+        gap: 30px;
     }
-
-    .footer {
+    
+    .right-section {
+        padding-left: 0;
+    }
+    
+    .project-divider-right {
+        max-width: 100%;
+    }
+    
+    .project-title-right {
+        font-size: 24px;
+    }
+    
+    .image-wrapper {
         flex-direction: column;
+        height: auto;
+        gap: 20px;
+    }
+    
+    .logo-section {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .gradient-image {
+        width: 250px;
+        height: 150px;
+    }
+    
+    .expanded-image-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .gradient-image-expanded {
+        margin-left: 0;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .project-card-inner {
+        padding: 1.5rem;
+    }
+    
+    .project-description, .project-link {
         text-align: center;
-        font-size: 0.9rem;
-        gap: 1rem;
-    }
-
-    .footer-links {
-        position: static;
-        margin-top: 1rem;
-    }
-
-    .header {
-        padding: 1rem 1.5rem;
-    }
-
-    .portfolio {
-        padding: 2rem 1rem;
-    }
-
-    .portfolio h2 {
-        font-size: 2rem;
-    }
-
-    .category-card {
-        padding: 2rem;
     }
 }
 
 @media (max-width: 400px) {
-    .portfolio-card {
-        padding: 2rem;
+    .project-details-button, .return-button {
+        padding: 12px 25px;
+        font-size: 14px;
     }
-
-    .portfolio-buttons {
-        gap: 0.8rem;
+    
+    .logo-section {
+        width: 120px;
+        height: 120px;
     }
-
-    .btn-primary, .btn-secondary {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.9rem;
+    
+    .gradient-image {
+        width: 200px;
+        height: 120px;
+    }
+    
+    .menu-text, .maker-text, .by-text, .qwenta-text {
+        font-size: 14px;
     }
 }

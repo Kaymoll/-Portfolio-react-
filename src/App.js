@@ -6,7 +6,7 @@ import './App.css';
 const AnimatedTitle = () => {
 const [displayedText, setDisplayedText] = useState('');
 const [currentIndex, setCurrentIndex] = useState(0);
-const fullText = 'Portfolio';
+const fullText = 'Mon Portfolio';
 
   useEffect(() => {
     if (currentIndex < fullText.length) {
@@ -42,6 +42,183 @@ const fullText = 'Portfolio';
     >
       {displayedText}
     </motion.h2>
+  );
+};
+
+// Composant Carte de Projet
+const ProjectCard = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const projectData = {
+    title: "De la Gestion de Projet...",
+    description: "Il s'agissait ici de s'entraîner à planifier le développement d'une application ainsi que tous ses paramètres. L'exercice avait pour but d'appréhender tous les aspects de la gestion de projet, des sprints aux compétences nécessaires, jusqu'aux ressources humaines et les outils pouvant être utilisés pour répondre aux différentes problématiques",
+    skills: [
+      "Rédaction de spécifications techniques",
+      "Trello", 
+      "Wakelet",
+      "Agilité"
+    ],
+    link: "Un peu plus loin"
+  };
+
+  const toggleExpanded = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  return (
+    <motion.div 
+      className="project-showcase-card"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
+      <div className={`project-card-inner ${isExpanded ? 'expanded' : ''}`}>
+        
+        {/* État initial - Vue centrée */}
+        {!isExpanded && (
+          <motion.div 
+            className="initial-view"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="image-wrapper">
+              <div className="logo-section">
+                <div className="logo-card">
+                  <div className="logo-text">
+                    <div className="menu-text">MENU</div>
+                    <div className="maker-text">MAKER</div>
+                    <div className="by-text">BY</div>
+                    <div className="qwenta-text">QWENTA</div>
+                  </div>
+                  <div className="solution-text">
+                    <div>SOLUTION</div>
+                    <div>TECHNIQUE</div>
+                  </div>
+                  <div className="webgencia-logo">
+                    <span>W</span>
+                    <span className="webgencia-text">Webgencia</span>
+                  </div>
+                </div>
+              </div>
+              <div className="gradient-image"></div>
+            </div>
+            
+            <h3 className="project-title-center">{projectData.title}</h3>
+            <div className="project-divider"></div>
+            
+            <motion.button 
+              className="project-details-button" 
+              onClick={toggleExpanded}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Détails du projet
+            </motion.button>
+          </motion.div>
+        )}
+
+        {/* État étendu - Vue avec layout horizontal */}
+        <AnimatePresence>
+          {isExpanded && (
+            <motion.div 
+              className="expanded-view"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <div className="left-section">
+                <div className="node-fuand">NODE FUAND</div>
+                <div className="expanded-image-wrapper">
+                  <div className="logo-section-small">
+                    <div className="logo-card-small">
+                      <div className="logo-text-small">
+                        <div className="menu-text-small">MENU</div>
+                        <div className="maker-text-small">MAKER</div>
+                        <div className="by-text-small">BY</div>
+                        <div className="qwenta-text-small">QWENTA</div>
+                      </div>
+                      <div className="solution-text-small">
+                        <div>SOLUTION</div>
+                        <div>TECHNIQUE</div>
+                      </div>
+                      <div className="webgencia-logo-small">
+                        <span>W</span>
+                        <span className="webgencia-text-small">Webgencia</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="gradient-image-expanded"></div>
+                </div>
+                
+                <div className="skills-container">
+                  {projectData.skills.map((skill, index) => (
+                    <motion.span 
+                      key={skill} 
+                      className="skill-badge"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="right-section">
+                <motion.h3 
+                  className="project-title-right"
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                >
+                  {projectData.title}
+                </motion.h3>
+                <motion.div 
+                  className="project-divider-right"
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ width: 300, opacity: 1 }}
+                  transition={{ delay: 0.4, duration: 0.8 }}
+                ></motion.div>
+                
+                <motion.div 
+                  className="project-description"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5, duration: 0.6 }}
+                >
+                  {projectData.description}
+                </motion.div>
+                
+                <motion.div 
+                  className="project-link"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6, duration: 0.6 }}
+                >
+                  <u>{projectData.link}</u>
+                </motion.div>
+                
+                <motion.button 
+                  className="return-button" 
+                  onClick={toggleExpanded}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7, duration: 0.6 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Retour
+                </motion.button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.div>
   );
 };
 
@@ -81,11 +258,6 @@ function App() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
   };
 
-  const fadeInLeft = {
-    hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
-  };
-
   const staggerContainer = {
     hidden: {},
     visible: {
@@ -102,7 +274,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* Header avec animation */}
+      {/* Header animation */}
       <motion.header 
         className="header"
         initial={{ opacity: 0, y: -50 }}
@@ -132,7 +304,7 @@ function App() {
         </motion.div>
       </motion.header>
 
-      {/* Section Portfolio avec animations */}
+      {/* Portfolio animations */}
       <motion.section 
         id="portfolio" 
         className="portfolio"
@@ -141,7 +313,7 @@ function App() {
         viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
       >
-
+        {/* Titre animé */}
         <AnimatedTitle />
         
         {/* Catégories avec animation en cascade */}
@@ -179,6 +351,31 @@ function App() {
           ))}
         </motion.div>
 
+        {/* Mes projets */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <motion.h3 
+            style={{ 
+              fontSize: '2rem', 
+              color: 'var(--text-color)', 
+              marginTop: '4rem',
+              marginBottom: '2rem',
+              textAlign: 'center'
+            }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Projet en vedette
+          </motion.h3>
+          <ProjectCard />
+        </motion.div>
+
         {/* Carte principale avec animation */}
         <motion.div 
           className="portfolio-card"
@@ -192,9 +389,9 @@ function App() {
             transition: { duration: 0.3 }
           }}
         >
-          <h3>Voir mon portfolio</h3>
-          <p>Découvrez mes projets depuis mon profil Github et mon portfolio.</p>
-          
+          <h3>Plus de détails ?</h3>
+          <p>Découvrez mes projets depuis mon profil Github et échanger avec moi.</p>
+
           <motion.div 
             className="portfolio-buttons"
             variants={staggerContainer}
@@ -216,7 +413,7 @@ function App() {
             
             <motion.a
               target="_blank"
-              href="https://kaymoll.github.io/Portfolio/"
+              href="https://cvcam.netlify.app/"
               className="btn-secondary"
               variants={scaleIn}
               whileHover={{ 
@@ -227,13 +424,13 @@ function App() {
               }}
               whileTap={{ scale: 0.95 }}
             >
-              🔗 Mon Portfolio
+              🔗 Mon e-CV
             </motion.a>
           </motion.div>
         </motion.div>
       </motion.section>
 
-      {/* Footer avec animation */}
+      {/* Footer animation */}
       <motion.footer 
         className="footer"
         initial={{ opacity: 0 }}
