@@ -338,12 +338,6 @@ function App() {
             <motion.div
               key={index}
               className="category-card"
-              variants={scaleIn}
-              whileHover={{ 
-                scale: 1.05, 
-                y: -5,
-                transition: { duration: 0.3 }
-              }}
             >
               <h4>{category.title}</h4>
               <p>{category.desc}</p>

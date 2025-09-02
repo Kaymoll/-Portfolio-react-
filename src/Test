@@ -1,0 +1,16 @@
+
+/* styles category card */
+.category-card {
+    background: var(--bg-secondary);
+    border-radius: 15px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(124, 142, 231, 0.1);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+.category-card:hover {
+    border : 2px solid var(--border-color);
+}

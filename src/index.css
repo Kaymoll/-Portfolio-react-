@@ -221,13 +221,6 @@ input:checked+.slider:before {
     flex-wrap: wrap;
 }
 
-.portfolio-categories {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
 .category-card {
     background: var(--bg-secondary);
     border-radius: 15px;
@@ -313,32 +306,10 @@ input:checked+.slider:before {
     position: relative;
 }
 
-.logo-card {
-    color: black;
-    text-align: center;
-}
-
-.menu-text, .maker-text, .by-text, .qwenta-text {
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 1.2;
-    margin: 2px 0;
-}
-
-.solution-text {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 8px;
-    font-weight: bold;
-    line-height: 1;
-}
-
 .webgencia-logo {
     position: absolute;
     bottom: 20px;
     left: 20px;
-    background: white;
     padding: 8px;
     border-radius: 4px;
     display: flex;
@@ -438,45 +409,10 @@ input:checked+.slider:before {
     margin: 1px 0;
 }
 
-.solution-text-small {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 6px;
-    font-weight: bold;
-    line-height: 1;
-}
-
-.webgencia-logo-small {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background: white;
-    padding: 4px;
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    gap: 2px;
-}
-
-.webgencia-logo-small span:first-child {
-    color: #4a7c59;
-    font-weight: bold;
-    font-size: 10px;
-}
-
-.webgencia-text-small {
-    font-size: 6px;
-    color: #4a7c59;
-    font-weight: bold;
-}
-
 .gradient-image-expanded {
     width: 200px;
     height: 120px;
-    background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #dda0dd);
     background-size: 200% 200%;
-    animation: gradientShift 3s ease infinite;
     border-radius: 8px;
     margin-left: 10px;
 }
