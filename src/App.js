@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './index.css';
 
-// Composant titre animé intégré
+// Composant titre animé
 const AnimatedTitle = () => {
   const [displayedText, setDisplayedText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -44,7 +44,7 @@ const AnimatedTitle = () => {
   );
 };
 
-// Composant ProjectCard amélioré
+// Composant ProjectCard
 const ProjectCard = ({ projectData, isActive }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -196,7 +196,7 @@ const ProjectCard = ({ projectData, isActive }) => {
   );
 };
 
-// Nouveau composant carrousel simplifié
+// Composant carrousel 
 const SimpleProjectCarousel = ({ projects }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -446,8 +446,8 @@ function App() {
         {/* Titre animé */}
         <AnimatedTitle />
 
-        {/* Mes projets avec nouveau carrousel */}
-        <SimpleProjectCarousel projects={[projectData1, projectData2, projectData3]} />
+        {/* Mes projets dans le carrousel */}
+        <SimpleProjectCarousel projects={[projectData1, projectData2, projectData3, projectData4]} />
 
         {/* Cartes animées */}
         <motion.div 
