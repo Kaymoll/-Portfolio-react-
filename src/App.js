@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './index.css';
 
 // Composant titre animé intégré
 const AnimatedTitle = () => {
-const [displayedText, setDisplayedText] = useState('');
-const [currentIndex, setCurrentIndex] = useState(0);
-const fullText = 'Portfolio';
+  const [displayedText, setDisplayedText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const fullText = 'Portfolio';
 
   useEffect(() => {
     if (currentIndex < fullText.length) {
@@ -17,13 +17,12 @@ const fullText = 'Portfolio';
 
       return () => clearTimeout(timeout);
     }
-
   }, [currentIndex, fullText]);
 
   return (
     <motion.h2
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       style={{
         background: 'transparent',
@@ -45,67 +44,52 @@ const fullText = 'Portfolio';
   );
 };
 
-// Composant Cartes de Projet
-const ProjectCard = () => {
+// Composant ProjectCard amélioré
+const ProjectCard = ({ projectData, isActive }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-
-  const projectData = {
-    image: "projet.png",
-    title: "De la Gestion de Projet...",
-    description: "Il s'agissait ici de s'entraîner à planifier le développement d'une application ainsi que tous ses paramètres. L'exercice avait pour but d'appréhender tous les aspects de la gestion de projet, des sprints aux compétences nécessaires, jusqu'aux ressources humaines et les outils pouvant être utilisés pour répondre aux différentes problématiques",
-    skills: [
-      "Rédaction de spécifications techniques",
-      "Trello", 
-      "Wakelet",
-      "Agilité"
-    ],
-    link: "Un peu plus loin"
-  };
 
   const toggleExpanded = () => {
     setIsExpanded(!isExpanded);
   };
 
   return (
-    <motion.div 
-      className="project-showcase-card"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-    >
-      <div className={`project-card-inner ${isExpanded ? 'expanded' : ''}`}>
+    <div className={`single-project-card ${isExpanded ? 'expanded' : ''} ${isActive ? 'active' : ''}`}>
+      <motion.div 
+        className={`project-card-content ${isExpanded ? 'expanded' : ''}`}
+        layout
+        transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+      >
         
         {/* État initial - Vue centrée */}
         {!isExpanded && (
           <motion.div 
-            className="initial-view"
+            className="card-initial-view"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {/* Image du projet - partiellement visible */}
+            {/* Image du projet */}
             <motion.div 
-              className="project-image-container"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
+              className="card-image-container"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <img 
                 src={projectData.image} 
                 alt={projectData.title}
-                className="project-image-preview"
+                className="card-image-preview"
               />
             </motion.div>
             
-            <h3 className="project-title-center">{projectData.title}</h3>
-            <div className="project-divider"></div>
+            <h3 className="card-title-center">{projectData.title}</h3>
+            <div className="card-divider"></div>
             
             <motion.button 
-              className="project-details-button" 
+              className="card-details-button" 
               onClick={toggleExpanded}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ y: -2 }}
+              whileTap={{ y: 0 }}
             >
               Détails du projet
             </motion.button>
@@ -116,16 +100,16 @@ const ProjectCard = () => {
         <AnimatePresence>
           {isExpanded && (
             <motion.div 
-              className="expanded-view"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
+              className="card-expanded-view"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <div className="left-section">
+              <div className="card-left-section">
                 {/* Image du projet - complètement visible */}
                 <motion.div 
-                  className="project-image-expanded-container"
+                  className="card-image-expanded-container"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
@@ -133,15 +117,15 @@ const ProjectCard = () => {
                   <img 
                     src={projectData.image} 
                     alt={projectData.title}
-                    className="project-image-expanded"
+                    className="card-image-expanded"
                   />
                 </motion.div>
 
-                <div className="skills-container">
+                <div className="card-skills-container">
                   {projectData.skills.map((skill, index) => (
                     <motion.span 
                       key={skill} 
-                      className="skill-badge"
+                      className="card-skill-badge"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
@@ -152,9 +136,9 @@ const ProjectCard = () => {
                 </div>
               </div>
 
-              <div className="right-section">
+              <div className="card-right-section">
                 <motion.h3 
-                  className="project-title-right"
+                  className="card-title-right"
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2, duration: 0.6 }}
@@ -162,14 +146,14 @@ const ProjectCard = () => {
                   {projectData.title}
                 </motion.h3>
                 <motion.div 
-                  className="project-divider-right"
+                  className="card-divider-right"
                   initial={{ width: 0, opacity: 0 }}
-                  animate={{ width: 300, opacity: 1 }}
+                  animate={{ width: '100%', opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.8 }}
                 ></motion.div>
                 
                 <motion.div 
-                  className="project-description"
+                  className="card-description"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.6 }}
@@ -178,22 +162,28 @@ const ProjectCard = () => {
                 </motion.div>
                 
                 <motion.div 
-                  className="project-link"
+                  className="card-link"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6, duration: 0.6 }}
                 >
-                  <u>{projectData.link}</u>
+                  {projectData.link?.url ? (
+                    <a href={projectData.link.url} target="_blank" rel="noopener noreferrer">
+                      <u>{projectData.link.text}</u>
+                    </a>
+                  ) : (
+                    <u>{projectData.link}</u>
+                  )}
                 </motion.div>
                 
                 <motion.button 
-                  className="return-button" 
+                  className="card-return-button" 
                   onClick={toggleExpanded}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7, duration: 0.6 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ y: 0 }}
                 >
                   Retour
                 </motion.button>
@@ -201,10 +191,111 @@ const ProjectCard = () => {
             </motion.div>
           )}
         </AnimatePresence>
+      </motion.div>
+    </div>
+  );
+};
+
+// Nouveau composant carrousel simplifié
+const SimpleProjectCarousel = ({ projects }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const goToSlide = (index) => {
+    if (index === currentIndex || isTransitioning) return;
+    
+    setIsTransitioning(true);
+    setCurrentIndex(index);
+    
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 300);
+  };
+
+  const goToPrevious = () => {
+    const newIndex = currentIndex === 0 ? projects.length - 1 : currentIndex - 1;
+    goToSlide(newIndex);
+  };
+
+  const goToNext = () => {
+    const newIndex = currentIndex === projects.length - 1 ? 0 : currentIndex + 1;
+    goToSlide(newIndex);
+  };
+
+  return (
+    <div className="simple-carousel-container">
+      {/* Navigation par points */}
+      <div className="carousel-navigation">
+        {projects.map((_, index) => (
+          <button
+            key={index}
+            className={`carousel-dot ${index === currentIndex ? 'active' : ''}`}
+            onClick={() => goToSlide(index)}
+            disabled={isTransitioning}
+          />
+        ))}
       </div>
+
+      {/* Container principal de la carte */}
+      <div className="carousel-main-container">
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="carousel-card-wrapper"
+        >
+          <ProjectCard 
+            projectData={projects[currentIndex]} 
+            isActive={true}
+          />
+        </motion.div>
+      </div>
+
+      {/* Navigation par flèches */}
+      <div className="carousel-arrows">
+        <button
+          className="carousel-arrow left"
+          onClick={goToPrevious}
+          disabled={isTransitioning}
+        >
+          ←
+        </button>
+        <button
+          className="carousel-arrow right"
+          onClick={goToNext}
+          disabled={isTransitioning}
+        >
+          →
+        </button>
+      </div>
+
+      {/* Indicateur de progression */}
+      <div className="carousel-counter">
+        {currentIndex + 1} / {projects.length}
+      </div>
+    </div>
+  );
+};
+
+// Utilisation dans votre App
+const ProjectsSection = ({ projectData1, projectData2, projectData3, projectData4 }) => {
+  const projects = [projectData1, projectData2, projectData3, projectData4];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+    >
+      <SimpleProjectCarousel projects={projects} />
     </motion.div>
   );
 };
+
+export { SimpleProjectCarousel, ProjectsSection };
 
 // Composant Thème Dark/light
 function App() {
@@ -237,6 +328,59 @@ function App() {
     }
   };
 
+  // Définition des données des projets
+  const projectData1 = {
+    image: "projet.png",
+    title: "De la Gestion de Projet...",
+    description: "Il s'agissait ici de s'entraîner à planifier le développement d'une application ainsi que tous ses paramètres. L'exercice avait pour but d'appréhender tous les aspects de la gestion de projet, des sprints aux compétences nécessaires, jusqu'aux ressources humaines et les outils pouvant être utilisés pour répondre aux différentes problématiques",
+    skills: [
+      "Rédaction de spécifications techniques",
+      "Trello", 
+      "Wakelet",
+      "Agilité"
+    ],
+    link: { text: "Un peu plus loin", url: "https://example.com/project1" }
+  };
+
+  const projectData2 = {
+    image: "projet3.png",
+    title: "Du développement...",
+    description: "Le développement d'une application moderne avec React. Ce projet consistait à créer une interface utilisateur interactive et responsive, en utilisant les dernières technologies web pour offrir une expérience utilisateur optimale.",
+    skills: [
+      "React",
+      "Tailwind", 
+      "HTML5/CSS3/SCSS",
+      "Node.js"
+    ],
+    link: { text: "Voir le projet", url: "https://example.com/project2" }
+  };
+
+  const projectData3 = {
+    image: "projet2.png",
+    title: "De l'analyse et conception...",
+    description: "Analyse approfondie des besoins utilisateurs et conception d'architecture logicielle. Ce projet m'a permis de développer mes compétences en UX/UI design et en architecture de données.",
+    skills: [
+      "UX/UI Design",
+      "Figma", 
+      "Base de données",
+      "Architecture logicielle"
+    ],
+    link: { text: "Découvrir", url: "https://example.com/project3" }
+  };
+
+  const projectData4 = {
+    image: "projet1.png",
+    title: "De l'analyse et conception...",
+    description: "Analyse approfondie des besoins utilisateurs et conception d'architecture logicielle. Ce projet m'a permis de développer mes compétences en UX/UI design et en architecture de données.",
+    skills: [
+      "UX/UI Design",
+      "Figma", 
+      "Base de données",
+      "Architecture logicielle"
+    ],
+    link: { text: "Un peu plus loin", url: "https://example.com/project1" }
+  };
+
   // Animations variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
@@ -253,8 +397,8 @@ function App() {
   };
 
   const scaleIn = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } }
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }
   };
 
   return (
@@ -268,7 +412,7 @@ function App() {
       >
         <motion.div 
           className="logo"
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ y: -2 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
           Camille Lucidarme
@@ -276,7 +420,7 @@ function App() {
         
         <motion.div 
           className="toggle-switch"
-          whileTap={{ scale: 0.95 }}
+          whileTap={{ opacity: 0.8 }}
         >
           <label className="theme-switch">
             <input 
@@ -302,20 +446,8 @@ function App() {
         {/* Titre animé */}
         <AnimatedTitle />
 
-        {/* Mes projets */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <div className="flex flex-row flex-nowrap gap-6 overflow-x-auto overflow-y-hidden">
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-            <ProjectCard />
-          </div>
-        </motion.div>
+        {/* Mes projets avec nouveau carrousel */}
+        <SimpleProjectCarousel projects={[projectData1, projectData2, projectData3]} />
 
         {/* Cartes animées */}
         <motion.div 
@@ -325,7 +457,7 @@ function App() {
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeInUp}
           whileHover={{ 
-            scale: 1,
+            y: -3,
             boxShadow: "0 20px 40px rgba(124, 142, 231, 0.2)",
             transition: { duration: 0.3 }
           }}
@@ -342,12 +474,14 @@ function App() {
               href="https://github.com/Kaymoll"
               className="btn-primary"
               variants={scaleIn}
+              initial={{ opacity: 1 }}
               whileHover={{ 
-                scale: 1.05, 
                 y: -3,
                 boxShadow: "0 10px 20px rgba(124, 142, 231, 0.3)"
               }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ y: 0 }}
+              transition={{ duration: 0.2 }}
+              style={{ display: 'inline-block' }}
             >
               🔗 Profil Github
             </motion.a>
@@ -357,13 +491,15 @@ function App() {
               href="https://cvcam.netlify.app/"
               className="btn-secondary"
               variants={scaleIn}
+              initial={{ opacity: 1 }}
               whileHover={{ 
-                scale: 1.05, 
                 y: -3,
                 backgroundColor: "var(--border-color)",
                 color: "var(--color-btn1)"
               }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ y: 0 }}
+              transition={{ duration: 0.2 }}
+              style={{ display: 'inline-block' }}
             >
               🔗 Mon e-CV
             </motion.a>
@@ -391,7 +527,7 @@ function App() {
               target="_blank"
               href="https://www.linkedin.com/in/camillelucidarme/"
               style={{ color: '#959ECB', textDecoration: 'none' }}
-              whileHover={{ color: '#7c8ee7', scale: 1.05 }}
+              whileHover={{ color: '#7c8ee7', y: -1 }}
             >
               LinkedIn
             </motion.a> |{' '}
@@ -399,14 +535,14 @@ function App() {
               target="_blank"
               href="https://github.com/Kaymoll"
               style={{ color: '#959ECB', textDecoration: 'none' }}
-              whileHover={{ color: '#7c8ee7', scale: 1.05 }}
+              whileHover={{ color: '#7c8ee7', y: -1 }}
             >
               Github
             </motion.a> |{' '}
             <motion.a
               href="mailto:camillelcd7@gmail.com"
               style={{ color: '#959ECB', textDecoration: 'none' }}
-              whileHover={{ color: '#7c8ee7', scale: 1.05 }}
+              whileHover={{ color: '#7c8ee7', y: -1 }}
             >
               E-mail
             </motion.a>
