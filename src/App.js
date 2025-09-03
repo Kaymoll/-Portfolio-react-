@@ -332,92 +332,93 @@ function App() {
 
   const projectData7 = {
     image: "projet.png",
-    title: "De la Gestion de Projet...",
-    description: "Il s'agissait ici de s'entraîner à planifier le développement d'une application ainsi que tous ses paramètres. L'exercice avait pour but d'appréhender tous les aspects de la gestion de projet, des sprints aux compétences nécessaires, jusqu'aux ressources humaines et les outils pouvant être utilisés pour répondre aux différentes problématiques",
+    title: "De la conception au déploiement",
+    description: "Ici, je compte reprendre des bases en Back-end et Front-end, me permettant d'approfondir de nombreux outils ou encore de comprendre comment fonctionne la sécurité des données utilisateurs.",
     skills: [
-      "Rédaction de spécifications techniques",
-      "Trello", 
-      "Wakelet",
-      "Agilité"
+      "Back-end", 
+      "Front-end",
+      "Authentification", 
+      "Déploiement",
+      "MétaDonnées"
     ],
-    link: { text: "Projet en cours" }
+    link: { text: "Projet en cours", url: "https://example.com/" }
   };
 
 
   const projectData6 = {
     image: "projet6.png",
-    title: "De la Gestion de Projet...",
-    description: "Il s'agissait ici de s'entraîner à planifier le développement d'une application ainsi que tous ses paramètres. L'exercice avait pour but d'appréhender tous les aspects de la gestion de projet, des sprints aux compétences nécessaires, jusqu'aux ressources humaines et les outils pouvant être utilisés pour répondre aux différentes problématiques",
+    title: "Application Portfolio",
+    description: "Grâce à Create React App, j'ai fait mes premiers pas en React où j'ai pu concevoir ce portfolio. La principale difficulté ici a été de comprendre en profondeur le fonctionnement de React, et de maitriser son fonctionnement afin de développer un code solide et le plus automatisé possible.",
     skills: [
-      "Rédaction de spécifications techniques",
-      "Trello", 
-      "Wakelet",
-      "Agilité"
+      "React Community",
+      "Typescript",
+      "Tailwind",
+      "Node.js",
+      "Test/Debug",
+      "SaSS",
     ],
-    link: { text: "Un peu plus loin", url: "https://example.com/project1" }
   };
 
   const projectData5 = {
     image: "projet5.png",
     title: "Un peu de Back-end !",
-    description: "Il s'agissait ici de s'entraîner à planifier le développement d'une application ainsi que tous ses paramètres. L'exercice avait pour but d'appréhender tous les aspects de la gestion de projet, des sprints aux compétences nécessaires, jusqu'aux ressources humaines et les outils pouvant être utilisés pour répondre aux différentes problématiques",
+    description: "Il s'agissait ici de s'entraîner à apprendre la programmation orientée objet en Java. L'objectif était de créer une application simple en utilisant les concepts de POO.",
     skills: [
-      "Rédaction de spécifications techniques",
-      "Trello", 
-      "Wakelet",
-      "Agilité"
+      "Java",
+      "IntelliJ IDEA",
+      "POO"
     ],
-    link: { text: "Un peu plus loin", url: "https://example.com/project1" }
+    link: { text: "Un peu plus loin", url: "https://github.com/Kaymoll/Apprentissage-JAVA" }
   };
 
   const projectData4 = {
     image: "projet4.png",
-    title: "Un peu de Back-end !",
-    description: "Je me suis lancer un défi pour pratiquer la programmation orientée objet avec Java, tout en manipulant des collections, des objets, et des entrées utilisateur.",
+    title: "Créer une page d'accueil",
+    description: "Projet ne comportant que du front, j'ai voulu créer une page d'accueil responsive et attrayante avec quelques fonctionnalitées.",
     skills: [
-      "Java",
-      "IntelliJ Idea",
+      "Javascript",
+      "HTML5",
+      "CSS3",
+      "Responsive Design"
     ],
-    link: { text: "Voir le projet", url: "https://github.com/Kaymoll/Apprentissage-JAVA" }
+    link: { text: "Voir mon e-CV", url: "https://cvcam.netlify.app/" }
   };
 
   const projectData3 = {
-    image: "projet2.png",
-    title: "De l'analyse et conception...",
-    description: "Analyse approfondie des besoins utilisateurs et conception d'architecture logicielle. Ce projet m'a permis de développer mes compétences en UX/UI design et en architecture de données.",
+    image: "projet3.png",
+    title: "Générateur de Mot de Passe",
+    description: "Une application colorée qui permet de générer des mots de passe, en utilisant des algorithmes de génération aléatoire et de m'améliorer en CSS.",
     skills: [
-      "UX/UI Design",
-      "Figma", 
-      "Base de données",
-      "Architecture logicielle"
+      "Javascript",
+      "HTML5", 
+      "SCSS",
+      "Base de données"
     ],
-    link: { text: "Découvrir", url: "https://example.com/project3" }
+    link: { text: "Découvrir", url: "https://kaymoll.github.io/Portfolio/GenerateurMDP.html" }
   };
 
   const projectData2 = {
     image: "projet2.png",
-    title: "De l'analyse et conception...",
-    description: "Analyse approfondie des besoins utilisateurs et conception d'architecture logicielle. Ce projet m'a permis de développer mes compétences en UX/UI design et en architecture de données.",
+    title: "Brick Breaker",
+    description: "Un niveau classique de casse-briques développé en JavaScript. Ce projet avait pour but de développer le dynamisme et l'interaction entre l'utilisateur et l'application. Le plus compliqué a été de gérer les collisions entre la balle, la raquette et les briques.",
     skills: [
-      "UX/UI Design",
-      "Figma", 
-      "Base de données",
-      "Architecture logicielle"
+      "Javascript",
+      "HTML5",
+      "CSS3",
     ],
-    link: { text: "Un peu plus loin", url: "https://example.com/project1" }
+    link: { text: "Voir le jeu", url: "https://kaymoll.github.io/Portfolio/JeuCasseBrique.html" }
   };
 
     const projectData1 = {
     image: "projet1.png",
-    title: "De l'analyse et conception...",
-    description: "Analyse approfondie des besoins utilisateurs et conception d'architecture logicielle. Ce projet m'a permis de développer mes compétences en UX/UI design et en architecture de données.",
+    title: "Calculatrice",
+    description: "Le but était de reprendre mon projet de mon stage chez M2i, cette fois ci en Javascript. Cela m'a permis de travailler à la fois la logique, mais aussi l'écriture et l'expression en programmation.",
     skills: [
-      "UX/UI Design",
-      "Figma", 
+      "Javascript",
+      "CSS3",
       "Base de données",
-      "Architecture logicielle"
     ],
-    link: { text: "Un peu plus loin", url: "https://example.com/project1" }
+    link: { text: "Voir l'application", url: "https://kaymoll.github.io/Portfolio/Calculatrice.html" }
   };
 
   // Animations variants
