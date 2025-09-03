@@ -76,7 +76,7 @@ body {
     color: transparent;
     z-index: 1003;
     transition: all 0.3s ease;
-    cursor: default;
+    cursor: none;
 }
 
 /* Thème switch section */
@@ -172,8 +172,6 @@ input:checked+.slider:before {
     font-weight: 500;
 }
 
-/* ===== NOUVEAU CARROUSEL SIMPLE ===== */
-
 /* Container principal du carrousel */
 .simple-carousel-container {
     position: relative;
@@ -214,7 +212,7 @@ input:checked+.slider:before {
 }
 
 .carousel-dot:disabled {
-    cursor: not-allowed;
+    cursor: wait;
     opacity: 0.3;
 }
 
@@ -273,7 +271,7 @@ input:checked+.slider:before {
 
 .carousel-arrow:disabled {
     opacity: 0.4;
-    cursor: not-allowed;
+    cursor: progress;
 }
 
 /* Compteur de progression */
@@ -284,8 +282,6 @@ input:checked+.slider:before {
     font-size: 0.9rem;
     font-weight: 500;
 }
-
-/* ===== STYLES DES CARTES REFAITES ===== */
 
 /* Carte de projet principale */
 .single-project-card {
@@ -314,7 +310,6 @@ input:checked+.slider:before {
 
 .project-card-content:hover {
     border: 1px solid var(--border-color);
-    box-shadow: 0 8px 20px rgba(124, 142, 231, 0.2);
 }
 
 .project-card-content.expanded {
@@ -344,13 +339,7 @@ input:checked+.slider:before {
     border-radius: 12px;
     margin-bottom: 15px;
     position: relative;
-    box-shadow: 0 8px 25px rgba(124, 142, 231, 0.15);
     transition: all 0.3s ease;
-}
-
-.card-image-container:hover {
-    box-shadow: 0 12px 35px rgba(124, 142, 231, 0.25);
-    transform: translateY(-2px);
 }
 
 .card-image-preview {
@@ -757,7 +746,7 @@ input:checked+.slider:before {
     }
 }
 
-/* Corrections pour éviter les débordements */
+/* Eviter les débordements */
 .card-expanded-view * {
     max-width: 100%;
     word-wrap: break-word;

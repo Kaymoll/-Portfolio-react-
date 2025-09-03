@@ -260,14 +260,14 @@ const SimpleProjectCarousel = ({ projects }) => {
           onClick={goToPrevious}
           disabled={isTransitioning}
         >
-          ←
+          &lt;
         </button>
         <button
           className="carousel-arrow right"
           onClick={goToNext}
           disabled={isTransitioning}
         >
-          →
+          &gt;
         </button>
       </div>
 
@@ -280,8 +280,8 @@ const SimpleProjectCarousel = ({ projects }) => {
 };
 
 // Utilisation dans votre App
-const ProjectsSection = ({ projectData1, projectData2, projectData3, projectData4 }) => {
-  const projects = [projectData1, projectData2, projectData3, projectData4];
+const ProjectsSection = ({ projectData7, projectData6, projectData5, projectData4, projectData3, projectData2, projectData1 }) => {
+  const projects = [projectData7, projectData6, projectData5, projectData4, projectData3, projectData2, projectData1];
 
   return (
     <motion.div
@@ -329,8 +329,23 @@ function App() {
   };
 
   // Définition des données des projets
-  const projectData1 = {
+
+  const projectData7 = {
     image: "projet.png",
+    title: "De la Gestion de Projet...",
+    description: "Il s'agissait ici de s'entraîner à planifier le développement d'une application ainsi que tous ses paramètres. L'exercice avait pour but d'appréhender tous les aspects de la gestion de projet, des sprints aux compétences nécessaires, jusqu'aux ressources humaines et les outils pouvant être utilisés pour répondre aux différentes problématiques",
+    skills: [
+      "Rédaction de spécifications techniques",
+      "Trello", 
+      "Wakelet",
+      "Agilité"
+    ],
+    link: { text: "Projet en cours" }
+  };
+
+
+  const projectData6 = {
+    image: "projet6.png",
     title: "De la Gestion de Projet...",
     description: "Il s'agissait ici de s'entraîner à planifier le développement d'une application ainsi que tous ses paramètres. L'exercice avait pour but d'appréhender tous les aspects de la gestion de projet, des sprints aux compétences nécessaires, jusqu'aux ressources humaines et les outils pouvant être utilisés pour répondre aux différentes problématiques",
     skills: [
@@ -342,17 +357,28 @@ function App() {
     link: { text: "Un peu plus loin", url: "https://example.com/project1" }
   };
 
-  const projectData2 = {
-    image: "projet3.png",
-    title: "Du développement...",
-    description: "Le développement d'une application moderne avec React. Ce projet consistait à créer une interface utilisateur interactive et responsive, en utilisant les dernières technologies web pour offrir une expérience utilisateur optimale.",
+  const projectData5 = {
+    image: "projet5.png",
+    title: "Un peu de Back-end !",
+    description: "Il s'agissait ici de s'entraîner à planifier le développement d'une application ainsi que tous ses paramètres. L'exercice avait pour but d'appréhender tous les aspects de la gestion de projet, des sprints aux compétences nécessaires, jusqu'aux ressources humaines et les outils pouvant être utilisés pour répondre aux différentes problématiques",
     skills: [
-      "React",
-      "Tailwind", 
-      "HTML5/CSS3/SCSS",
-      "Node.js"
+      "Rédaction de spécifications techniques",
+      "Trello", 
+      "Wakelet",
+      "Agilité"
     ],
-    link: { text: "Voir le projet", url: "https://example.com/project2" }
+    link: { text: "Un peu plus loin", url: "https://example.com/project1" }
+  };
+
+  const projectData4 = {
+    image: "projet4.png",
+    title: "Un peu de Back-end !",
+    description: "Je me suis lancer un défi pour pratiquer la programmation orientée objet avec Java, tout en manipulant des collections, des objets, et des entrées utilisateur.",
+    skills: [
+      "Java",
+      "IntelliJ Idea",
+    ],
+    link: { text: "Voir le projet", url: "https://github.com/Kaymoll/Apprentissage-JAVA" }
   };
 
   const projectData3 = {
@@ -368,7 +394,20 @@ function App() {
     link: { text: "Découvrir", url: "https://example.com/project3" }
   };
 
-  const projectData4 = {
+  const projectData2 = {
+    image: "projet2.png",
+    title: "De l'analyse et conception...",
+    description: "Analyse approfondie des besoins utilisateurs et conception d'architecture logicielle. Ce projet m'a permis de développer mes compétences en UX/UI design et en architecture de données.",
+    skills: [
+      "UX/UI Design",
+      "Figma", 
+      "Base de données",
+      "Architecture logicielle"
+    ],
+    link: { text: "Un peu plus loin", url: "https://example.com/project1" }
+  };
+
+    const projectData1 = {
     image: "projet1.png",
     title: "De l'analyse et conception...",
     description: "Analyse approfondie des besoins utilisateurs et conception d'architecture logicielle. Ce projet m'a permis de développer mes compétences en UX/UI design et en architecture de données.",
@@ -394,11 +433,6 @@ function App() {
         staggerChildren: 0.2
       }
     }
-  };
-
-  const scaleIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }
   };
 
   return (
@@ -447,23 +481,19 @@ function App() {
         <AnimatedTitle />
 
         {/* Mes projets dans le carrousel */}
-        <SimpleProjectCarousel projects={[projectData1, projectData2, projectData3, projectData4]} />
+        <SimpleProjectCarousel projects={[projectData7, projectData6, projectData5, projectData4, projectData3, projectData2, projectData1]} />
 
-        {/* Cartes animées */}
+        {/* Portfolio */}
         <motion.div 
           className="portfolio-card"
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          variants={fadeInUp}
-          whileHover={{ 
-            y: -3,
-            boxShadow: "0 20px 40px rgba(124, 142, 231, 0.2)",
-            transition: { duration: 0.3 }
-          }}
+          variants={{ fadeInUp }}
+          whileHover={{ scale: 1.02, boxShadow: "0 10px 20px rgba(124, 142, 231, 0.3)", transition: { duration: 0.3 } }}
         >
-          <h3>Plus de détails ?</h3>
-          <p>Découvrez mes projets depuis mon profil Github et échanger avec moi.</p>
+          <h3>En savoir plus ?</h3>
+          <p>Découvrez mes projets depuis mon profil Github ou visiter mon CV pour me connaître davantage</p>
 
           <motion.div 
             className="portfolio-buttons"
@@ -473,13 +503,9 @@ function App() {
               target="_blank"
               href="https://github.com/Kaymoll"
               className="btn-primary"
-              variants={scaleIn}
-              initial={{ opacity: 1 }}
-              whileHover={{ 
-                y: -3,
-                boxShadow: "0 10px 20px rgba(124, 142, 231, 0.3)"
-              }}
-              whileTap={{ y: 0 }}
+              initial={{ scale: 1 }}
+              whileHover={{ scale: 1.05, y: -3 }}
+              whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
               style={{ display: 'inline-block' }}
             >
@@ -490,14 +516,13 @@ function App() {
               target="_blank"
               href="https://cvcam.netlify.app/"
               className="btn-secondary"
-              variants={scaleIn}
-              initial={{ opacity: 1 }}
+              initial={{ scale: 1 }}
               whileHover={{ 
-                y: -3,
+                scale: 1.05, y: -3,
                 backgroundColor: "var(--border-color)",
                 color: "var(--color-btn1)"
               }}
-              whileTap={{ y: 0 }}
+              whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
               style={{ display: 'inline-block' }}
             >
