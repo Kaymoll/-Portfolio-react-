@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './index.css';
+import { link } from 'framer-motion/client';
 
 // Composant titre animé
 const AnimatedTitle = () => {
@@ -357,6 +358,7 @@ function App() {
       "Test/Debug",
       "SaSS",
     ],
+    link: { text: "Voir le code", url: "https://github.com/Kaymoll/-Portfolio-react-" }
   };
 
   const projectData5 = {
