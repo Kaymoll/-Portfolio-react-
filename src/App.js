@@ -377,7 +377,7 @@ function App() {
       "SCSS",
       "Base de données"
     ],
-    link: { text: "Découvrir", url: "https://kaymoll.github.io/Portfolio/GenerateurMDP.html" }
+    link: { text: "Découvrir", url: "https://kaymoll.github.io/Smalls-Projects/GenerateurMDP.html" }
   };
 
   const projectData2 = {
@@ -389,7 +389,7 @@ function App() {
       "HTML5",
       "CSS3",
     ],
-    link: { text: "Voir le jeu", url: "https://kaymoll.github.io/Portfolio/JeuCasseBrique.html" }
+    link: { text: "Voir le jeu", url: "https://kaymoll.github.io/Smalls-Projects/JeuCasseBrique.html" }
   };
 
     const projectData1 = {
@@ -401,7 +401,7 @@ function App() {
       "CSS3",
       "Base de données",
     ],
-    link: { text: "Voir l'application", url: "https://kaymoll.github.io/Portfolio/Calculatrice.html" }
+    link: { text: "Voir l'application", url: "https://kaymoll.github.io/Smalls-Projects/Calculatrice.html" }
   };
 
   // Animations variants
