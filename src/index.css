@@ -76,7 +76,7 @@ body {
     color: transparent;
     z-index: 1003;
     transition: all 0.3s ease;
-    cursor: none;
+    cursor: help;
 }
 
 /* Thème switch section */
@@ -746,10 +746,8 @@ input:checked+.slider:before {
     }
 }
 
-/* Eviter les débordements */
 .card-expanded-view * {
     max-width: 100%;
-    word-wrap: break-word;
     overflow-wrap: break-word;
 }
 

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './index.css';
-import { link } from 'framer-motion/client';
 
 // Composant titre animé
 const AnimatedTitle = () => {
@@ -280,24 +279,6 @@ const SimpleProjectCarousel = ({ projects }) => {
   );
 };
 
-// Utilisation dans votre App
-const ProjectsSection = ({ projectData7, projectData6, projectData5, projectData4, projectData3, projectData2, projectData1 }) => {
-  const projects = [projectData7, projectData6, projectData5, projectData4, projectData3, projectData2, projectData1];
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, delay: 0.2 }}
-    >
-      <SimpleProjectCarousel projects={projects} />
-    </motion.div>
-  );
-};
-
-export { SimpleProjectCarousel, ProjectsSection };
-
 // Composant Thème Dark/light
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -486,17 +467,17 @@ function App() {
         {/* Mes projets dans le carrousel */}
         <SimpleProjectCarousel projects={[projectData7, projectData6, projectData5, projectData4, projectData3, projectData2, projectData1]} />
 
-        {/* Portfolio */}
+        {/* Portfolio contact */}
         <motion.div 
           className="portfolio-card"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          variants={{ fadeInUp }}
+          variants={fadeInUp}
           whileHover={{ scale: 1.02, boxShadow: "0 10px 20px rgba(124, 142, 231, 0.3)", transition: { duration: 0.3 } }}
         >
           <h3>En savoir plus ?</h3>
-          <p>Découvrez mes projets depuis mon profil Github ou visiter mon CV pour me connaître davantage</p>
+          <p>Découvrez mes projets depuis mon profil Github ou visiter mon CV pour mieux me connaître</p>
 
           <motion.div 
             className="portfolio-buttons"
