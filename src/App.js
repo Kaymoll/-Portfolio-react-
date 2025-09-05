@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './index.css';
+import { Analytics } from "@vercel/analytics/react"
 
 // Composant titre animé
 const AnimatedTitle = () => {
@@ -558,6 +559,7 @@ const [isDarkTheme, setIsDarkTheme] = useState(false);
           </p>
         </motion.div>
       </motion.footer>
+      <Analytics />
     </div>
   );
 }
