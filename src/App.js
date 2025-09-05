@@ -2,37 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './index.css';
 
-// Composant Thème Dark/light
-  function App() {
-const [isDarkTheme, setIsDarkTheme] = useState(false);
-
-  // Gestion du thème au chargement
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const isLight = savedTheme === 'light';
-    setIsDarkTheme(!isLight);
-    
-    if (isLight) {
-      document.body.setAttribute('data-theme', 'light');
-    } else {
-      document.body.removeAttribute('data-theme');
-    }
-  }, []);
-
-  // Fonction pour changer le thème
-  const toggleTheme = () => {
-    const newTheme = !isDarkTheme;
-    setIsDarkTheme(newTheme);
-    
-    if (!newTheme) {
-      document.body.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', 'light');
-    } else {
-      document.body.removeAttribute('data-theme');
-      localStorage.setItem('theme', 'dark');
-    }
-};
-
 // Composant titre animé
 const AnimatedTitle = () => {
   const [displayedText, setDisplayedText] = useState('');
@@ -403,6 +372,37 @@ const SimpleProjectCarousel = ({ projects }) => {
     ],
     link: { text: "Voir l'application", url: "https://kaymoll.github.io/Smalls-Projects/Calculatrice.html" }
   };
+
+  // Composant Thème Dark/light
+function App() {
+const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  // Gestion du thème au chargement
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const isLight = savedTheme === 'light';
+    setIsDarkTheme(!isLight);
+    
+    if (isLight) {
+      document.body.setAttribute('data-theme', 'light');
+    } else {
+      document.body.removeAttribute('data-theme');
+    }
+  }, []);
+
+  // Fonction pour changer le thème
+  const toggleTheme = () => {
+    const newTheme = !isDarkTheme;
+    setIsDarkTheme(newTheme);
+    
+    if (!newTheme) {
+      document.body.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.body.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'dark');
+    }
+};
 
   // Animations variants
   const fadeInUp = {
