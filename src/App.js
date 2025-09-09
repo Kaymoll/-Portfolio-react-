@@ -316,15 +316,17 @@ const [isDarkTheme, setIsDarkTheme] = useState(false);
   const projectData7 = {
     image: "projet.png",
     title: "De la conception au déploiement",
-    description: "Ici, je compte reprendre des bases en Back-end et Front-end, me permettant d'approfondir de nombreux outils ou encore de comprendre comment fonctionne la sécurité des données utilisateurs.",
+    description: "Ici je compte reprendre des bases en Back-end et Front-end, me permettant d'approfondir de nombreux outils ou encore de comprendre comment fonctionne la sécurité des données utilisateurs. C'est un projet dont je n'imaginais pas l'ampleur mais que je compte mener à bien, en utilisant les bonnes pratiques de développement et en m'assurant de la qualité du code.",
     skills: [
+      "Architecture MVP",
       "Back-end", 
       "Front-end",
+      "API",
+      "PostgreSQL",
       "Authentification", 
-      "Déploiement",
       "MétaDonnées"
     ],
-    link: { text: "Projet en cours", url: "https://example.com/" }
+    link: { text: "Projet en cours", url: "https://github.com/Kaymoll/COC" }
   };
 
 
@@ -357,8 +359,8 @@ const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const projectData4 = {
     image: "projet4.png",
-    title: "Créer une page d'accueil",
-    description: "Projet ne comportant que du front, j'ai voulu créer une page d'accueil responsive et attrayante avec quelques fonctionnalitées.",
+    title: "Que du Front-end",
+    description: "Projet qui consistait à créer une page d'accueil responsive et attrayante avec quelques fonctionnalitées.",
     skills: [
       "Javascript",
       "HTML5",
