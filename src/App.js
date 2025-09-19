@@ -254,7 +254,6 @@ const SimpleProjectCarousel = ({ projects }) => {
         </motion.div>
       </div>
 
-      {/* Navigation par flèches */}
       <div className="carousel-arrows">
         <button
           className="carousel-arrow left"
@@ -316,17 +315,17 @@ const [isDarkTheme, setIsDarkTheme] = useState(false);
   const projectData7 = {
     image: "projet.png",
     title: "De la conception au déploiement",
-    description: "Ici je compte reprendre des bases en Back-end et Front-end, me permettant d'approfondir de nombreux outils ou encore de comprendre comment fonctionne la sécurité des données utilisateurs. C'est un projet dont je n'imaginais pas l'ampleur mais que je compte mener à bien, en utilisant les bonnes pratiques de développement et en m'assurant de la qualité du code.",
+    description: "Mon premier projet Full Stack dont je n'imaginais pas l'ampleur mais que je compte mener à bien. Le but est de concevoir une appli Web qui pourras servir à une Startup, en assurant la sécuritées des données (Paiement, Auth (RLS), etc.) et en m'assurant de la qualité du code.",
     skills: [
       "Architecture MVP",
-      "Back-end", 
-      "Front-end",
+      "Full Stack",
       "API",
       "PostgreSQL",
       "Authentification", 
-      "MétaDonnées"
+      "MétaDonnées",
+      "Paiement en Ligne"
     ],
-    link: { text: "Projet en cours", url: "https://github.com/Kaymoll/COC" }
+    link: { text: "Projet en cours", url: "https://github.com/Kaymoll/COC" },
   };
 
 
@@ -464,10 +463,9 @@ const [isDarkTheme, setIsDarkTheme] = useState(false);
         variants={staggerContainer}
       >
 
-        {/* Titre animé */}
         <AnimatedTitle />
 
-        {/* Mes projets dans le carrousel */}
+        {/* Mes projets */}
         <SimpleProjectCarousel projects={[projectData7, projectData6, projectData5, projectData4, projectData3, projectData2, projectData1]} />
 
         {/* Portfolio contact */}
