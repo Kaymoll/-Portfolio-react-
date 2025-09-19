@@ -315,7 +315,7 @@ const [isDarkTheme, setIsDarkTheme] = useState(false);
   const projectData7 = {
     image: "projet.png",
     title: "De la conception au déploiement",
-    description: "Mon premier projet Full Stack dont je n'imaginais pas l'ampleur mais que je compte mener à bien. Le but est de concevoir une appli Web qui pourras servir à une Startup, en assurant la sécuritées des données (Paiement, Auth (RLS), etc.) et en m'assurant de la qualité du code.",
+    description: "Mon premier projet Full Stack dont je n'imaginais pas l'ampleur mais que je compte mener à bien. Le but est de concevoir une appli Web qui pourras servir à une Startup, tout en m'assurant de la qualité du code et de la sécurité des données (Paiement, Auth (RLS), etc.)",
     skills: [
       "Architecture MVP",
       "Full Stack",
