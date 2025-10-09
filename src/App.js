@@ -123,7 +123,7 @@ const ProjectCard = ({ projectData, isActive }) => {
                 </motion.div>
 
                 <div className="card-skills-container">
-                  {projectData.skills.map((skill, index) => (
+                  {projectData.skills?.map((skill, index) => (
                     <motion.span 
                       key={skill} 
                       className="card-skill-badge"
@@ -158,9 +158,8 @@ const ProjectCard = ({ projectData, isActive }) => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.6 }}
-                >
-                  {projectData.description}
-                </motion.div>
+                  dangerouslySetInnerHTML={{ __html: projectData.description }}
+                />
                 
                 <motion.div 
                   className="card-link"
@@ -312,40 +311,45 @@ const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   // Définition des données des projets
 
-  const projectData7 = {
-    image: "projet.png",
+const projectData7 = {
     title: "De la conception au déploiement",
-    description: "Mon premier projet Full Stack dont je n'imaginais pas l'ampleur mais que je compte mener à bien. Le but est de concevoir une appli Web qui pourras servir à une Startup, tout en m'assurant de la qualité du code et de la sécurité des données (Paiement, Auth (RLS), etc.)",
-    skills: [
-      "Architecture MVP",
-      "Full Stack",
-      "API",
-      "PostgreSQL",
-      "Authentification", 
-      "MétaDonnées",
-      "Paiement en Ligne"
-    ],
-    link: { text: "Projet en cours", url: "https://github.com/Kaymoll/COC" },
+    image: "projet7.webp",
+    description: `
+      <p>
+        Mon premier projet Full Stack, dans lequel j'ai structurer mon code de façon maintenable et évolutif, afin de facilité le debugging ou la migration sur d'autres plateformes/serveurs plus optimisées. Cela n'offre pas plus de performance mais me fera gagner des heures de développement à long terme. Cette approche est également idéale pour une Startup souhaitant se lancer sans le moindre coût, avec quelques limitations mais qui sont pour le moment temporaire avant de pouvoir évoluer pleinement.
+      </p>
+      <ul>
+        <li>
+          <strong>Côté Backend :</strong> Next.js (Typescript) permet de créer un backend entièrement intégré via ses API Routes, compatibles en Node.js et le tout gérer sur un serveur SQL dans Supabase.
+        </li>
+        <li>
+          <strong>Côté Frontend :</strong> Figma pour le design (intègrant TailwindCSS et React). Ce qui ma permis de gagner beaucoup de temps, le design est simple mais le but était surtout de rendre le site opérationnel.
+        </li>
+      </ul>
+      <p style="margin-bottom: 1rem;">
+        J'ai également intégrer des sessions de paiement avec Stripe et de la réponse automatisé par mail avec Resend.
+      </p>
+    `,
+    skills: ["Architecture MVP", "Next.js", "API Routes", "PostgreSQL", "Authentification", "RLS", "Compte Client", "Paiement en Ligne"],
+    link: { text: "Site Web", url: "https://certifconfeuro.vercel.app/" }
   };
 
-
   const projectData6 = {
-    image: "projet6.png",
+    image: "projet6.webp",
     title: "Application Portfolio",
     description: "Grâce à Create React App, j'ai fait mes premiers pas en React où j'ai pu concevoir ce portfolio. La principale difficulté ici a été de comprendre en profondeur le fonctionnement de React, et de maitriser son fonctionnement afin de développer un code solide et le plus automatisé possible.",
     skills: [
       "React Community",
       "Typescript",
       "Tailwind",
-      "Node.js",
       "Test/Debug",
-      "SaSS",
+      "Mobile First",
     ],
     link: { text: "Voir le code", url: "https://github.com/Kaymoll/-Portfolio-react-" }
   };
 
   const projectData5 = {
-    image: "projet5.png",
+    image: "projet5.webp",
     title: "Un peu de Back-end !",
     description: "Il s'agissait ici de s'entraîner à apprendre la programmation orientée objet en Java. L'objectif était de créer une application simple en utilisant les concepts de POO.",
     skills: [
@@ -357,7 +361,7 @@ const [isDarkTheme, setIsDarkTheme] = useState(false);
   };
 
   const projectData4 = {
-    image: "projet4.png",
+    image: "projet4.webp",
     title: "Que du Front-end",
     description: "Projet qui consistait à créer une page d'accueil responsive et attrayante avec quelques fonctionnalitées.",
     skills: [
@@ -370,7 +374,7 @@ const [isDarkTheme, setIsDarkTheme] = useState(false);
   };
 
   const projectData3 = {
-    image: "projet3.png",
+    image: "projet3.webp",
     title: "Générateur de Mot de Passe",
     description: "Une application colorée qui permet de générer des mots de passe, en utilisant des algorithmes de génération aléatoire et de m'améliorer en CSS.",
     skills: [
@@ -383,7 +387,7 @@ const [isDarkTheme, setIsDarkTheme] = useState(false);
   };
 
   const projectData2 = {
-    image: "projet2.png",
+    image: "projet2.webp",
     title: "Brick Breaker",
     description: "Un niveau classique de casse-briques développé en JavaScript. Ce projet avait pour but de développer le dynamisme et l'interaction entre l'utilisateur et l'application. Le plus compliqué a été de gérer les collisions entre la balle, la raquette et les briques.",
     skills: [
@@ -395,7 +399,7 @@ const [isDarkTheme, setIsDarkTheme] = useState(false);
   };
 
     const projectData1 = {
-    image: "projet1.png",
+    image: "projet1.webp",
     title: "Calculatrice",
     description: "Le but était de reprendre mon projet de mon stage chez M2i, cette fois ci en Javascript. Cela m'a permis de travailler à la fois la logique, mais aussi l'écriture et l'expression en programmation.",
     skills: [
