@@ -316,22 +316,22 @@ const projectData7 = {
     image: "projet7.webp",
     description: `
       <p>
-        Mon premier projet Full Stack, dans lequel j'ai structurer mon code de façon maintenable et évolutif, afin de facilité le debugging ou la migration sur d'autres plateformes/serveurs plus optimisées. Cela n'offre pas plus de performance mais me fera gagner des heures de développement à long terme. Cette approche est également idéale pour une Startup souhaitant se lancer sans le moindre coût, avec quelques limitations mais qui sont pour le moment temporaire avant de pouvoir évoluer pleinement.
+        Mon premier projet Full Stack dans lequel j'ai structurer mon code de façon maintenable et évolutif, afin de facilité le debugging ou la migration sur d'autres plateformes/serveurs plus optimisées. Cela me fera gagner des heures de développement à long terme et cette approche est également intéréssante pour une Startup souhaitant démarrer sans le moindre coût avant de pouvoir évoluer pleinement.
       </p>
       <ul>
         <li>
-          <strong>Côté Backend :</strong> Next.js (Typescript) permet de créer un backend entièrement intégré via ses API Routes, compatibles en Node.js et le tout gérer sur un serveur SQL dans Supabase.
+          <strong>Côté Back-end :</strong> API routes avec Next.js (Typescript), le tout est gérer sur un serveur SQL et peut-être compatibles en NodeJS.
         </li>
         <li>
-          <strong>Côté Frontend :</strong> Figma pour le design (intègrant TailwindCSS et React). Ce qui ma permis de gagner beaucoup de temps, le design est simple mais le but était surtout de rendre le site opérationnel.
+          <strong>Côté Front-end :</strong> Figma, en intégrant TailwindCSS et React, ma permis de gagner beaucoup de temps la dessus.
         </li>
       </ul>
-      <p style="margin-bottom: 1rem;">
-        J'ai également intégrer des sessions de paiement avec Stripe et de la réponse automatisé par mail avec Resend.
+      <p>
+        J'ai également pu intégrer une authentification OAuth avec Supabase, des sessions de paiement avec Stripe et de la réponse automatisé par mail avec Resend.
       </p>
     `,
     skills: ["Architecture MVP", "Next.js", "API Routes", "PostgreSQL", "Authentification", "RLS", "Compte Client", "Paiement en Ligne"],
-    link: { text: "Site Web", url: "https://certifconfeuro.vercel.app/" }
+    link: { text: "Voir le site", url: "https://certifconfeuro.vercel.app/" }
   };
 
   const projectData6 = {
@@ -342,8 +342,9 @@ const projectData7 = {
       "React Community",
       "Typescript",
       "Tailwind",
-      "Test/Debug",
       "Mobile First",
+      "Git",
+      "Build Test"
     ],
     link: { text: "Voir le code", url: "https://github.com/Kaymoll/-Portfolio-react-" }
   };
@@ -351,10 +352,11 @@ const projectData7 = {
   const projectData5 = {
     image: "projet5.webp",
     title: "Un peu de Back-end !",
-    description: "Il s'agissait ici de s'entraîner à apprendre la programmation orientée objet en Java. L'objectif était de créer une application simple en utilisant les concepts de POO.",
+    description: "Il s'agissait ici de s'entraîner à apprendre la programmation orientée objet en Java depuis un IDE pro. L'objectif était de créer une application simple en utilisant les concepts de POO dans de bonnes conditions : produire un code clair, maintenable et réutilisable",
     skills: [
-      "Java",
+      "J2E",
       "IntelliJ IDEA",
+      "Test/Debug",
       "POO"
     ],
     link: { text: "Un peu plus loin", url: "https://github.com/Kaymoll/Apprentissage-JAVA" }
@@ -363,11 +365,9 @@ const projectData7 = {
   const projectData4 = {
     image: "projet4.webp",
     title: "Que du Front-end",
-    description: "Projet qui consistait à créer une page d'accueil responsive et attrayante avec quelques fonctionnalitées.",
+    description: "Projet qui consistait à créer une page d'accueil responsive et animée avec quelques fonctionnalitées.",
     skills: [
-      "Javascript",
-      "HTML5",
-      "CSS3",
+      "HTML5/CSS3 & JS",
       "Responsive Design"
     ],
     link: { text: "Voir mon e-CV", url: "https://cvcam.netlify.app/" }
@@ -379,8 +379,9 @@ const projectData7 = {
     description: "Une application colorée qui permet de générer des mots de passe, en utilisant des algorithmes de génération aléatoire et de m'améliorer en CSS.",
     skills: [
       "Javascript",
-      "HTML5", 
+      "HTML5",
       "SCSS",
+      "Dessins SVG",
       "Base de données"
     ],
     link: { text: "Découvrir", url: "https://kaymoll.github.io/Smalls-Projects/GenerateurMDP.html" }
@@ -401,11 +402,11 @@ const projectData7 = {
     const projectData1 = {
     image: "projet1.webp",
     title: "Calculatrice",
-    description: "Le but était de reprendre mon projet de mon stage chez M2i, cette fois ci en Javascript. Cela m'a permis de travailler à la fois la logique, mais aussi l'écriture et l'expression en programmation.",
+    description: "Le but était de reprendre mon projet de mon stage chez M2i, cette fois ci en Javascript. Cela m'a permis de travailler à la fois la logique, mais aussi l'écriture et l'expression en programmation. J'ai également voulu tester l'IA générative afin d'adapter du CSS a mon code existant.",
     skills: [
+      "Algorithmie",
       "Javascript",
-      "CSS3",
-      "Base de données",
+      "LLM"
     ],
     link: { text: "Voir l'application", url: "https://kaymoll.github.io/Smalls-Projects/Calculatrice.html" }
   };
