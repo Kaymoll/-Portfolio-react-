@@ -365,12 +365,13 @@ const projectData7 = {
   const projectData4 = {
     image: "projet4.webp",
     title: "Que du Front-end",
-    description: "Projet qui consistait à créer une page d'accueil responsive et animée avec quelques fonctionnalitées.",
+    description: "Projet qui consistait à créer une page d'accueil responsive et animée avec quelques fonctionnalitées. J'ai également pu apprendre quelques bonnes pratiques sur git.",
     skills: [
       "HTML5/CSS3 & JS",
-      "Responsive Design"
+      "Responsive Design",
+      "Git"
     ],
-    link: { text: "Voir mon e-CV", url: "https://cvcam.netlify.app/" }
+    link: { text: "Voir le code", url: "https://github.com/Kaymoll/CvCam" }
   };
 
   const projectData3 = {
@@ -504,7 +505,7 @@ const projectData7 = {
             
             <motion.a
               target="_blank"
-              href="https://cvcam.netlify.app/"
+              href="https://kaymoll.github.io/CvCam/"
               className="btn-secondary"
               initial={{ scale: 1 }}
               whileHover={{ 
