@@ -531,7 +531,7 @@ const projectData7 = {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <p>© 2025 Camille Lucidarme. Tous droits réservés.</p>
+        <p>&copy; 2025 Camille Lucidarme</p>
         <motion.div 
           className="footer-links"
           whileInView={{ opacity: 1, x: 0 }}
