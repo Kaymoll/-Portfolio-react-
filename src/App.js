@@ -368,6 +368,7 @@ const projectData7 = {
     description: "Projet qui consistait à créer une page d'accueil responsive et animée avec quelques fonctionnalitées. J'ai également pu apprendre quelques bonnes pratiques sur git.",
     skills: [
       "HTML5/CSS3 & JS",
+      "WebStorm IDE",
       "Responsive Design",
       "Git"
     ],
@@ -377,39 +378,38 @@ const projectData7 = {
   const projectData3 = {
     image: "projet3.webp",
     title: "Générateur de Mot de Passe",
-    description: "Une application colorée qui permet de générer des mots de passe, en utilisant des algorithmes de génération aléatoire et de m'améliorer en CSS.",
+    description: "Une application web qui permet de générer des mots de passe, en utilisant des algorithmes de génération aléatoire et de m'améliorer en CSS. J'ai également voulu tester l'IA générative afin d'adapter du dessins SVG à mon CSS.",
     skills: [
       "Javascript",
-      "HTML5",
-      "SCSS",
-      "Dessins SVG",
-      "Base de données"
+      "CSS3",
+      "LLM",
+      "Dessins SVG"
     ],
-    link: { text: "Découvrir", url: "https://kaymoll.github.io/Smalls-Projects/GenerateurMDP.html" }
+    link: { text: "Découvrir", url: "https://kaymoll.github.io/Smalls-Projects/generateurMDP/generateurMDP.html" }
   };
 
   const projectData2 = {
     image: "projet2.webp",
     title: "Brick Breaker",
-    description: "Un niveau classique de casse-briques développé en JavaScript. Ce projet avait pour but de développer le dynamisme et l'interaction entre l'utilisateur et l'application. Le plus compliqué a été de gérer les collisions entre la balle, la raquette et les briques.",
+    description: "Un niveau classique de casse-briques développé en JavaScript. Ce projet avait pour but de développer le dynamisme et l'interaction entre l'utilisateur et l'application. Le plus compliqué a été de gérer les collisions entre la balle, la raquette et les briques. L'IA m'as bien aider pour ça, je l'avoue.",
     skills: [
       "Javascript",
       "HTML5",
       "CSS3",
+      "LLM"
     ],
-    link: { text: "Voir le jeu", url: "https://kaymoll.github.io/Smalls-Projects/JeuCasseBrique.html" }
+    link: { text: "Voir le jeu", url: "https://kaymoll.github.io/Smalls-Projects/casseBrique/casseBrique.html" }
   };
 
     const projectData1 = {
     image: "projet1.webp",
     title: "Calculatrice",
-    description: "Le but était de reprendre mon projet de mon stage chez M2i, cette fois ci en Javascript. Cela m'a permis de travailler à la fois la logique, mais aussi l'écriture et l'expression en programmation. J'ai également voulu tester l'IA générative afin d'adapter du CSS a mon code existant.",
+    description: "Ici le but était créer les fonctionnalités en JavaScript d'une calculatrice à partir des fichiers HTML et CSS déjà fourni sous une durée de 3 heures. Cela m'a permis de travailler à la fois la logique, mais aussi l'écriture et l'expression en programmation.",
     skills: [
       "Algorithmie",
-      "Javascript",
-      "LLM"
+      "Javascript"
     ],
-    link: { text: "Voir l'application", url: "https://kaymoll.github.io/Smalls-Projects/Calculatrice.html" }
+    link: { text: "Voir l'application", url: "https://kaymoll.github.io/Smalls-Projects/calculatrice/calculatrice.html" }
   };
 
   // Animations variants
