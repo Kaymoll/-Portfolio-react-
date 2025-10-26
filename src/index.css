@@ -11,7 +11,7 @@
     --text-third: #d1d5db;
     --text-color: #7c8ee7;
     --text-other: #ffffff;
-    --text-gradient: linear-gradient(40deg, #7c8ee7, #b0b4c8);
+    --text-gradient: linear-gradient(50deg, #7c8ee7, #ffffff);
     --border-color: #7c8ee7;
 }
 
@@ -28,7 +28,7 @@
     --text-third: #555a62;
     --text-color: #7c8ee7;
     --text-other : #333333;
-    --text-gradient: linear-gradient(40deg, #7c8ee7, #353d76c7);
+    --text-gradient: linear-gradient(50deg, #555a62, #7c8ee7);
     --border-color: #7c8ee7;
 }
 
@@ -76,7 +76,7 @@ body {
     color: transparent;
     z-index: 1003;
     transition: all 0.3s ease;
-    cursor: help;
+    cursor: wait;
 }
 
 /* Thème switch section */
